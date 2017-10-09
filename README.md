@@ -70,6 +70,10 @@ optional arguments:
 
 ## Architecture
 
+![LSTM](images/LSTM3-var-GRU.png)
+
+*Credit: [colah.github.io](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)*
+
 ## Run on FloydHub
 
 Here's the commands to training, evaluating and serving your time sequence prediction model on FloydHub.
@@ -145,6 +149,8 @@ once you are done testing, **remember to shutdown the job!**
 Some useful resources on LSTM Cell and Networks:
 - [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [Understanding LSTM and its diagrams](https://medium.com/@shiyan/understanding-lstm-and-its-diagrams-37e2f46f1714)
+- [Exploring LSTMs - see Snorlax Example :)](http://blog.echen.me/2017/05/30/exploring-lstms/)
+- [What is an intuitive explanation of LSTMs and GRUs?](https://www.quora.com/What-is-an-intuitive-explanation-of-LSTMs-and-GRUs)
 - [Recurrent Neural Networks (RNN) and Long Short-Term Memory (LSTM) - Brandon Rohrer](https://youtu.be/WCUNPb-5EYI)
 
 ### Contributing
