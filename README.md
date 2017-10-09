@@ -1,5 +1,5 @@
 # Time Sequence Prediction
-This is a toy example for beginners to start with, more in detail: it's a porting of [pytorch/examples/time-sequence-prediction](https://github.com/pytorch/examples/tree/master/time_sequence_prediction) making it usables on [FloydHub](https://www.floydhub.com/). It is helpful for learning both pytorch and time sequence prediction. Two [LSTMCell]() units are used in this example to learn some sine wave signals starting at different phases. After learning the sine waves, the network tries to predict the signal values in the future. The results is shown in the picture below.
+This is a toy example for beginners to start with, more in detail: it's a porting of [pytorch/examples/time-sequence-prediction](https://github.com/pytorch/examples/tree/master/time_sequence_prediction) making it usables on [FloydHub](https://www.floydhub.com/). It is helpful for learning both pytorch and time sequence prediction. Two [LSTMCell](http://pytorch.org/docs/master/nn.html?highlight=lstmcell#torch.nn.LSTMCell) units are used in this example to learn some sine wave signals starting at different phases. After learning the sine waves, the network tries to predict the signal values in the future. The results is shown in the picture below.
 
 ![image](https://cloud.githubusercontent.com/assets/1419566/24184438/e24f5280-0f08-11e7-8f8b-4d972b527a81.png)
 
