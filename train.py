@@ -23,6 +23,12 @@ args = parser.parse_args()
 # CUDA?
 CUDA = torch.cuda.is_available()
 
+# Is there the outf?
+try:
+    os.makedirs(args.outf)
+except OSError:
+    pass
+
 # Model
 class Sequence(nn.Module):
     def __init__(self):
@@ -41,14 +47,18 @@ class Sequence(nn.Module):
         if CUDA:
             h_t, c_t, h_t2, c_t2 = h_t.cuda(), c_t.cuda(), h_t2.cuda(), c_t2.cuda()
 
+        # Iterate over columns
         for i, input_t in enumerate(input.chunk(input.size(1), dim=1)):
             h_t, c_t = self.lstm1(input_t, (h_t, c_t))
             h_t2, c_t2 = self.lstm2(h_t, (h_t2, c_t2))
             outputs += [h_t2]
+
+        # Begin with the test input and continue for steps in range(future) predictions
         for i in range(future):# if we should predict the future
             h_t, c_t = self.lstm1(h_t2, (h_t, c_t))
             h_t2, c_t2 = self.lstm2(h_t, (h_t2, c_t2))
             outputs += [h_t2]
+        # Compact the list of predictions
         outputs = torch.stack(outputs, 1).squeeze(2)
         return outputs
 
@@ -59,10 +69,17 @@ if __name__ == '__main__':
     torch.manual_seed(0)
     # load data and make training set
     data = torch.load(os.path.join(args.data, 'traindata.pt'))
+    # Sample: [1, 2, 3, 4]
+    # Input less the last value(what we want to predict given the sequence)
+    # e.g. [1, 2, 3]
     input = Variable(torch.from_numpy(data[3:, :-1]), requires_grad=False)
+    # Predict the next value (move the input one position right)
+    # e.g. [2, 3, 4]
     target = Variable(torch.from_numpy(data[3:, 1:]), requires_grad=False)
     if CUDA:
         input, target = input.cuda(), target.cuda()
+
+    # 3 samples for the test set
     test_input = Variable(torch.from_numpy(data[:3, :-1]), requires_grad=False)
     test_target = Variable(torch.from_numpy(data[:3, 1:]), requires_grad=False)
     if CUDA:
