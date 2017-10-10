@@ -70,9 +70,14 @@ optional arguments:
 
 ## Architecture
 
-![LSTM](images/LSTM.png)
+![LSTM](images/LSTM3-chain.png)
 
 *Credit: [colah.github.io](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)*
+
+Note: There are 2 differences from the image above with respect the model used in this example:
+
+- This model use 2 `LSTMCell`,
+- The output of first LSTM is used as input for the second LSTM cell.
 
 ## Run on FloydHub
 
