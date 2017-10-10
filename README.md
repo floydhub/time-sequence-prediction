@@ -70,7 +70,7 @@ optional arguments:
 
 ## Architecture
 
-![LSTM](images/LSTM3-var-GRU.png)
+![LSTM](images/LSTM.png)
 
 *Credit: [colah.github.io](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)*
 
