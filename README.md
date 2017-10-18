@@ -88,7 +88,7 @@ Here's the commands to training, evaluating and serving your time sequence predi
 Before you start, log in on FloydHub with the [floyd login](http://docs.floydhub.com/commands/login/) command, then fork and init the project:
 
 ```bash
-$ git clone https://github.com/ReDeiPirati/time-sequence-prediction.git
+$ git clone https://github.com/floydhub/time-sequence-prediction.git
 $ cd time-sequence-prediction
 $ floyd init time-sequence-prediction
 ```
